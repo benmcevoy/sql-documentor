@@ -117,11 +117,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="catalog.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\SQLDocumentor.CodeRenderer\SQLDocumentor.CodeRenderer.csproj">
       <Project>{00BF6CB8-504B-4FBD-BEE0-DC7F85FB7517}</Project>
       <Name>SQLDocumentor.CodeRenderer</Name>
