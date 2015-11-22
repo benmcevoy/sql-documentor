@@ -1,0 +1,261 @@
+﻿@using SQLDocumentor.RazorRenderer
+@using System.Reflection
+@{
+    SQLDocumentor.Model.Schema Model = Context as SQLDocumentor.Model.Schema;
+}
+
+<html>
+<head>
+    <title>SQL Documentor</title>
+    <link rel="stylesheet" type="text/css" href="templates/site.css" />
+</head>
+<body>
+    <div class="schema">
+        <div class="sectionObject">
+            <h1>Razor Rendered
+                <span class="objectType">@Model.Type</span> - <span class="objectName">@Model.Name</span></h1>
+            <div class="objectSummary">
+                <pre>@Model.Summary</pre>
+            </div>
+        </div>
+    </div>
+    <div id="types">
+        <h2>
+            <a name="Types">Types</a></h2>
+        <ul>
+            <li><a href="#Tables">Tables</a></li>
+            <li><a href="#Views">Views</a></li>
+            <li><a href="#Procedures">Procedures</a></li>
+            <li><a href="#Functions">Functions</a></li>
+        </ul>
+    </div>
+    @*TODO: should be partial*@
+    <div class="section">
+        <h2>
+            <a name="Tables" href="#Types"><span class="sectionTitle">Tables</span></a>
+        </h2>
+
+        <ul>
+        @foreach (var table in @Model.Tables)
+        {
+            <li><a href="#@Helpers.MakeName(table.Type, table.Name)">@table.Name</a></li>
+        }
+        </ul>
+
+        @foreach (var table in @Model.Tables)
+        {
+        <div class="sectionObject">
+            <a name="@Helpers.MakeName(table.Type, table.Name)"></a>
+            <h3>
+                <a href="#@table.Type"><span class="objectType">@table.Type</span></a> - <span class="objectName">
+                    @table.Name</span></h3>
+            <div class="objectSummary">
+                <p>@table.Summary</p>
+            </div>
+
+            <div class="objectParameters">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Name</th>
+                            <th>Summary</th>
+                            <th>Datatype</th>
+                            <th>Size</th>
+                            <th>Required?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var param in table.Parameters)
+                    {
+		                <tr>
+                            <td>@Helpers.ToKey(param.IsPrimaryKey, param.IsForeignKey, param.ForeignKeyTable)</td> 
+                            <td>@param.Name</td>
+                            <td>@param.Summary</td>
+                            <td>@param.Datatype</td>
+                            <td>@Helpers.ToSize(param.Size)</td>    
+                            <td>@Helpers.ToRequired(param.IsNullable)</td> 
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+
+@*            <div class="objectSource">
+                <pre><code>@table.Source</code></pre>
+            </div>*@
+        </div>
+        }
+    </div>
+
+    <div class="section">
+        <h2>
+            <a name="Views" href="#Types"><span class="sectionTitle">Views</span></a></h2>
+        <ul>
+
+        @foreach (var view in @Model.Views)
+        {
+            <li><a href="#@Helpers.MakeName(view.Type, view.Name)">@view.Name</a></li>
+        }
+        </ul>
+
+        @foreach (var view in @Model.Views)
+        {
+        <div class="sectionObject">
+            <a name="@Helpers.MakeName(view.Type, view.Name)"></a>
+            <h3>
+                <a href="#@view.Type"><span class="objectType">@view.Type</span></a> - <span class="objectName">
+                    @view.Name</span></h3>
+            <div class="objectSummary">
+                <p>@view.Summary</p>
+            </div>
+
+            <div class="objectParameters">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Name</th>
+                            <th>Summary</th>
+                            <th>Datatype</th>
+                            <th>Size</th>
+                            <th>Required?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var param in view.Parameters)
+                    {
+		                <tr>
+                            <td>@Helpers.ToKey(param.IsPrimaryKey, param.IsForeignKey, param.ForeignKeyTable)</td> 
+                            <td>@param.Name</td>
+                            <td>@param.Summary</td>
+                            <td>@param.Datatype</td>
+                            <td>@Helpers.ToSize(param.Size)</td>    
+                            <td>@Helpers.ToRequired(param.IsNullable)</td> 
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="objectSource">
+                <pre><code>@view.Source</code></pre>
+            </div>
+        </div>
+        }
+    </div>
+
+    <div class="section">
+        <h2>
+            <a name="Procedures" href="#Types"><span class="sectionTitle">Procedures</span></a></h2>
+        <ul>
+        @foreach (var proc in @Model.Procedures)
+        {
+            <li><a href="#@Helpers.MakeName(proc.Type, proc.Name)">@proc.Name</a></li>
+        }
+        </ul>
+
+        @foreach (var proc in @Model.Procedures)
+        {
+        <div class="sectionObject">
+            <a name="@Helpers.MakeName(proc.Type, proc.Name)"></a>
+            <h3>
+                <a href="#@proc.Type"><span class="objectType">@proc.Type</span></a> - <span class="objectName">
+                    @proc.Name</span></h3>
+            <div class="objectSummary">
+                <p>@proc.Summary</p>
+            </div>
+
+            <div class="objectParameters">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Name</th>
+                            <th>Summary</th>
+                            <th>Datatype</th>
+                            <th>Size</th>
+                            <th>Required?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var param in proc.Parameters)
+                    {
+		                <tr>
+                            <td>@Helpers.ToKey(param.IsPrimaryKey, param.IsForeignKey, param.ForeignKeyTable)</td> 
+                            <td>@param.Name</td>
+                            <td>@param.Summary</td>
+                            <td>@param.Datatype</td>
+                            <td>@Helpers.ToSize(param.Size)</td>    
+                            <td>@Helpers.ToRequired(param.IsNullable)</td> 
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="objectSource">
+                <pre><code>@proc.Source</code></pre>
+            </div>
+        </div>
+        }
+    </div>
+
+        <div class="section">
+        <h2>
+            <a name="Functions" href="#Types"><span class="sectionTitle">Functions</span></a></h2>
+        <ul>
+        @foreach (var func in @Model.Functions)
+        {
+            <li><a href="#@Helpers.MakeName(func.Type, func.Name)">@func.Name</a></li>
+        }
+        </ul>
+
+        @foreach (var func in @Model.Functions)
+        {
+        <div class="sectionObject">
+            <a name="@Helpers.MakeName(func.Type, func.Name)"></a>
+            <h3>
+                <a href="#@func.Type"><span class="objectType">@func.Type</span></a> - <span class="objectName">
+                    @func.Name</span></h3>
+            <div class="objectSummary">
+                <p>@func.Summary</p>
+            </div>
+
+            <div class="objectParameters">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Name</th>
+                            <th>Summary</th>
+                            <th>Datatype</th>
+                            <th>Size</th>
+                            <th>Required?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var param in func.Parameters)
+                    {
+			             <tr>
+                            <td>@Helpers.ToKey(param.IsPrimaryKey, param.IsForeignKey, param.ForeignKeyTable)</td> 
+                            <td>@param.Name</td>
+                            <td>@param.Summary</td>
+                            <td>@param.Datatype</td>
+                            <td>@Helpers.ToSize(param.Size)</td>    
+                            <td>@Helpers.ToRequired(param.IsNullable)</td> 
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="objectSource">
+                <pre><code>@func.Source</code></pre>
+            </div>
+        </div>
+        }
+    </div>
+
+</body>
+</html>

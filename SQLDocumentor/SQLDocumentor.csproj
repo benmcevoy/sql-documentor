@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA5775C7-38A0-43FC-A8B1-BE8F40329E3E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SQLDocumentor</RootNamespace>
+    <AssemblyName>SQLDocumentor</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>packages\Castle.Core.2.5.2\lib\NET35\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>packages\Castle.Windsor.2.5.3\lib\NET40-Client\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFExtensions">
+      <HintPath>..\lib\WPFExtensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controls\Field.xaml.cs">
+      <DependentUpon>Field.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\RelayCommand.cs" />
+    <Compile Include="ViewModels\GeneratorViewModel.cs" />
+    <Page Include="Controls\Field.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\GeneratorService.cs" />
+    <Compile Include="Shell.xaml.cs">
+      <DependentUpon>Shell.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="catalog.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SQLDocumentor.CodeRenderer\SQLDocumentor.CodeRenderer.csproj">
+      <Project>{00BF6CB8-504B-4FBD-BEE0-DC7F85FB7517}</Project>
+      <Name>SQLDocumentor.CodeRenderer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLDocumentor.CommerceServerCatalogXmlServer\SQLDocumentor.CommerceServerCatalogXmlServer.csproj">
+      <Project>{eaa3885d-fdef-4591-8e95-0f4dfa3ec3d3}</Project>
+      <Name>SQLDocumentor.CommerceServerCatalogXmlServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLDocumentor.DiagramRenderer\SQLDocumentor.DiagramRenderer.csproj">
+      <Project>{C00D41CC-4658-476F-B446-7D13BA72C6F9}</Project>
+      <Name>SQLDocumentor.DiagramRenderer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLDocumentor.HtmlRenderer\SQLDocumentor.HtmlRenderer.csproj">
+      <Project>{F4FE5683-1251-4AB5-AB9D-3FDF45002391}</Project>
+      <Name>SQLDocumentor.HtmlRenderer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLDocumentor.Interfaces\SQLDocumentor.Interfaces.csproj">
+      <Project>{E9A44CB1-C9DF-4D29-B721-342EE0585D21}</Project>
+      <Name>SQLDocumentor.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLDocumentor.Model\SQLDocumentor.Model.csproj">
+      <Project>{3DEB3604-6A4F-45E7-9959-2BC02D8A90F1}</Project>
+      <Name>SQLDocumentor.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLDocumentor.RazorRenderer\SQLDocumentor.RazorRenderer.csproj">
+      <Project>{70D29851-EA6D-443A-94F8-C859CC7F57B9}</Project>
+      <Name>SQLDocumentor.RazorRenderer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLDocumentor.SqlServer\SQLDocumentor.SqlServer.csproj">
+      <Project>{DFC0D79A-D470-40C1-89E9-0AF87B968AE9}</Project>
+      <Name>SQLDocumentor.SqlServer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <SheepAspectLocation>$(MSBuildProjectDirectory)\..\lib</SheepAspectLocation>
+  </PropertyGroup>
+  <UsingTask TaskName="PostCompileWeaveTask" AssemblyFile="$(SheepAspectLocation)\SheepAspect.Tasks.dll" />
+  <Target Name="AfterBuild">
+    <!--<PostCompileWeaveTask TargetFile="$(MSBuildProjectDirectory)\$(OutputPath)$(MSBuildProjectName).exe" SheepAspectLocation="$(SheepAspectLocation)" />-->
+  </Target>
+</Project>

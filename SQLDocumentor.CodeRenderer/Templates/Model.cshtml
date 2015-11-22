@@ -1,0 +1,45 @@
+﻿@using SQLDocumentor.CodeRenderer
+@using System.Reflection
+@{
+    SQLDocumentor.Model.Schema Model = Context as SQLDocumentor.Model.Schema;
+}
+
+@foreach (var table in Model.Tables)
+{
+<pre>
+<code>
+using System;
+using System.Collections.Generic;
+
+namespace SQLDocumentor.CodeRenderer
+{
+    public class @table.Name.Pascalize()
+    {
+    @foreach (var param in table.Parameters)
+    {
+        if (param.IsForeignKey)
+        {
+        @:private IList&lt;@param.ForeignKeyTableName.Pascalize()&gt; @param.ForeignKeyTableName.Pascalize().Pluralize().Privatize();
+        @:public IEnumerable&lt;@param.ForeignKeyTableName.Pascalize()&gt; @param.ForeignKeyTableName.Pascalize().Pluralize() { get @param.ForeignKeyTableName.Pascalize().Pluralize().Privatize(); }
+
+        @:public void Add@{@param.ForeignKeyTableName.Pascalize()}(@param.ForeignKeyTableName.Pascalize() item)
+       @:{
+            @param.ForeignKeyTableName.Pascalize().Pluralize().Privatize()@:.Add(item);   
+       @:}
+
+        @:public void Remove@{@param.ForeignKeyTableName.Pascalize()}(@param.ForeignKeyTableName.Pascalize() item)
+       @:{
+            @param.ForeignKeyTableName.Pascalize().Pluralize().Privatize()@:.Remove(item);   
+       @:}
+        
+        }
+        else
+        {
+        @:public @param.Datatype.AsDotNetType() @param.Name.Pascalize() { get; set; }    
+        }
+    }
+    }
+}
+</code>
+</pre>
+}

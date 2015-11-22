@@ -1,0 +1,34 @@
+﻿@using SQLDocumentor.CodeRenderer
+@using System.Reflection
+@{
+    SQLDocumentor.Model.Schema Model = Context as SQLDocumentor.Model.Schema;
+}
+
+@foreach (var table in Model.Tables)
+{
+<pre>
+<code>
+using System;
+using System.Collections.Generic;
+
+namespace SQLDocumentor.CodeRenderer
+{
+    public class @table.Name.Pascalize()
+    {
+
+    @foreach (var param in table.Parameters)
+    {
+        if (param.IsForeignKey)
+        {
+        @:public IEnumerable&lt;@param.ForeignKeyTableName.Pascalize()&gt; @param.ForeignKeyTableName.Pascalize().Pluralize() { get @param.ForeignKeyTableName.Pascalize().Pluralize().Privatize(); }
+        }
+        else
+        {
+        @:public @param.Datatype.AsDotNetType() @param.Name.Pascalize() { get; set; }    
+        }
+    }
+    }
+}
+</code>
+</pre>
+}

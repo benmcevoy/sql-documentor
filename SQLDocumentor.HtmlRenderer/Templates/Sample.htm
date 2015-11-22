@@ -1,0 +1,533 @@
+﻿<html>
+<head>
+    <title>SQL Documentor</title>
+    <link rel="stylesheet" type="text/css" href="site.css" />
+</head>
+<body>
+    <div class="section">
+        <div class="sectionTitle">
+            <h2>
+                Database</h2>
+        </div>
+        <div class="sectionObject">
+            <h1>
+                <span class="objectType">Schema</span> - <span class="objectName">RealEstate</span></h1>
+            <div class="objectSummary">
+                <pre>Status=ONLINE 
+Updateability=READ_WRITE 
+UserAccess=MULTI_USER 
+Recovery=SIMPLE 
+Version=661 
+Collation=Latin1_General_CI_AS 
+SQLSortOrder=0 
+IsAutoCreateStatistics 
+IsAutoUpdateStatistics 
+IsFullTextEnabled</pre>
+            </div>
+        </div>
+    </div>
+    <div id="types">
+        <h2>
+            <a name="Types">Types</a></h2>
+        <ul>
+            <li><a href="#Tables">Tables</a></li><li><a href="#Views">Views</a></li><li><a href="#Procedures">
+                Procedures</a></li><li><a href="#Functions">Functions</a></li></ul>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="Tables" href="#Types"><span class="sectionTitle">Tables</span></a></h2>
+        <ul>
+            <li><a href="#Tables_aust_states">aust_states</a></li><li><a href="#Tables_PostCode">
+                PostCode</a></li><li><a href="#Tables_Prices">Prices</a></li><li><a href="#Tables_Suburb">
+                    Suburb</a></li></ul>
+        <div class="sectionObject">
+            <a name="Tables_aust_states"></a>
+            <h3>
+                <a href="#Tables"><span class="objectType">Tables</span></a> - <span class="objectName">
+                    aust_states</span></h3>
+            <div class="objectSummary">
+                <pre></pre>
+            </div>
+            <div class="objectParameters">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Key
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Summary
+                            </th>
+                            <th>
+                                Datatype
+                            </th>
+                            <th>
+                                Size
+                            </th>
+                            <th>
+                                Required?
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                id
+                            </td>
+                            <td>
+                                Unique Identitfier for Australian State
+                            </td>
+                            <td>
+                                int
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                state_name
+                            </td>
+                            <td>
+                                This description is pulled from the Column Description Property
+                            </td>
+                            <td>
+                                varchar
+                            </td>
+                            <td>
+                                50
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                state_abbrev
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                varchar
+                            </td>
+                            <td>
+                                50
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="sectionObject">
+            <a name="Tables_PostCode"></a>
+            <h3>
+                <a href="#Tables"><span class="objectType">Tables</span></a> - <span class="objectName">
+                    PostCode</span></h3>
+            <div class="objectSummary">
+                <pre>This Description is pulled from the table's Extended Properties</pre>
+            </div>
+            <div class="objectParameters">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Key
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Summary
+                            </th>
+                            <th>
+                                Datatype
+                            </th>
+                            <th>
+                                Size
+                            </th>
+                            <th>
+                                Required?
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                Pcode
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                char
+                            </td>
+                            <td>
+                                4
+                            </td>
+                            <td>
+                                Required
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                Locality
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                varchar
+                            </td>
+                            <td>
+                                50
+                            </td>
+                            <td>
+                                Required
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                State
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                char
+                            </td>
+                            <td>
+                                4
+                            </td>
+                            <td>
+                                Required
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                Lat
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                decimal
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                Required
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                Long
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                decimal
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                Required
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                Location
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                geography
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                Boundary
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                geography
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="sectionObject">
+            <a name="Tables_Prices"></a>
+            <h3>
+                <a href="#Tables"><span class="objectType">Tables</span></a> - <span class="objectName">
+                    Prices</span></h3>
+            <div class="objectSummary">
+                <pre></pre>
+            </div>
+            <div class="objectParameters">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Key
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Summary
+                            </th>
+                            <th>
+                                Datatype
+                            </th>
+                            <th>
+                                Size
+                            </th>
+                            <th>
+                                Required?
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                PostCode
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                varchar
+                            </td>
+                            <td>
+                                50
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                Median
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                varchar
+                            </td>
+                            <td>
+                                50
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                LTT
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                varchar
+                            </td>
+                            <td>
+                                50
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                Clearance
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                varchar
+                            </td>
+                            <td>
+                                50
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                DaysOnMarket
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                varchar
+                            </td>
+                            <td>
+                                50
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                MedianDecimal
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                decimal
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="sectionObject">
+            <a name="Tables_Suburb"></a>
+            <h3>
+                <a href="#Tables"><span class="objectType">Tables</span></a> - <span class="objectName">
+                    Suburb</span></h3>
+            <div class="objectSummary">
+                <pre></pre>
+            </div>
+            <div class="objectParameters">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Key
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Summary
+                            </th>
+                            <th>
+                                Datatype
+                            </th>
+                            <th>
+                                Size
+                            </th>
+                            <th>
+                                Required?
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                SuburbName
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                varchar
+                            </td>
+                            <td>
+                                500
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                StateId
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                int
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                Boundary
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                geography
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="Views" href="#Types"><span class="sectionTitle">Views</span></a></h2>
+        <ul>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="Procedures" href="#Types"><span class="sectionTitle">Procedures</span></a></h2>
+        <ul>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="Functions" href="#Types"><span class="sectionTitle">Functions</span></a></h2>
+        <ul>
+        </ul>
+    </div>
+</body>
+</html>

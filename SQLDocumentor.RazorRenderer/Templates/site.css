@@ -1,0 +1,199 @@
+﻿/*
+Document Level
+*/
+body, div, span, p, a, img, table, th, tr, td, form, fieldset, legend, dl, dt, dd, blockquote, applet, object
+{
+	border: 0;
+}
+body
+{
+	background: #fff;
+	color: #333;
+	font: 80% "Segoe UI" , Sans-Serif;
+	margin: 20px;
+	padding: 0;
+	max-width: 950px;
+	margin: 0 auto;
+}
+a
+{
+	color: #3865C6;
+}
+a:hover
+{
+}
+p
+{
+	line-height: 130%;
+	margin: 15px 0;
+}
+h1, h2, h3, h4, h5, h6
+{
+	margin: 15px 0 10px 0;
+	font-weight: bold;
+	font-family: "Trebuchet MS";
+}
+h1
+{
+	font-size: 17pt;
+	font-weight: bold;
+	margin: 35px 0 10px 0;
+}
+h2
+{
+	font-size: 16pt;
+}
+h3
+{
+	font-size: 14pt;
+}
+h4
+{
+	font-size: 12pt;
+}
+h5
+{
+	font-size: 11pt;
+}
+
+/* Tables */
+
+table
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-size: 100%;
+}
+thead td, thead td.firstcolumn
+{
+	background: #e6e8e9;
+	font-weight: bold;
+}
+th
+{
+	font-weight: bold;
+	text-align: center;
+}
+th, td
+{
+	padding: 3px 20px 3px 7px;
+	border: 1px solid #d1d1d1;
+}
+td.numeric
+{
+	text-align: right;
+	padding-left: 20px;
+}
+td.date
+{
+	text-align: right;
+	padding-left: 20px;
+}
+td.firstcolumn
+{
+	text-align: left;
+	background: #f5f5f5;
+}
+
+
+/* Definitions */
+
+dl
+{
+	margin: 15px 0;
+}
+dt
+{
+	font-weight: bold;
+}
+dd
+{
+	margin-left: 30px;
+}
+
+
+
+
+abbr, acronym, .help
+{
+	border-bottom: 1px dotted #CCC;
+	cursor: help;
+}
+blockquote
+{
+	margin: 15px 20px;
+	font-style: italic;
+}
+del, .del
+{
+	text-decoration: line-through;
+}
+strong, .strong
+{
+	font-weight: bold;
+}
+cite, em, q, var
+{
+	font-style: italic;
+}
+code, kbd, samp, pre
+{
+	font-size: 11pt;
+}
+code, kbd, samp
+{
+	border: 0;
+	color: Navy;
+	font-family: "Consolas";
+}
+pre
+{
+	padding: 7px 12px;
+	margin: 10px 0px 10px 0px;
+	font-family: Consolas;
+	width: auto;
+	overflow: auto;
+	max-height: 500px;
+}
+pre code
+{
+	font-weight: normal;
+	font-family: Consolas;
+}
+
+body
+{
+    font-family: "Segoe UI", Verdana, Arial, Sans-Serif;
+    font-size: 10pt;
+    color: #333;
+    background: #fff;
+}
+
+a
+{
+	color: #2A5DB0;
+}
+a:hover
+{
+	color: #EF3942;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	color: #EF3942;
+	border: none;
+    font-family: "Segoe UI", Arial, Verdana, sans-serif;
+    font-weight: normal;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
+{
+	color: #EF3942;
+	border: none;
+}
+
+pre
+{
+    background: #f0f0f0;
+    border: none;
+}

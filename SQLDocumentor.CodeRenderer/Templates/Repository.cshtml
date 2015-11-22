@@ -1,0 +1,116 @@
+﻿@using SQLDocumentor.CodeRenderer
+@using System.Reflection
+@{
+    SQLDocumentor.Model.Schema Model = Context as SQLDocumentor.Model.Schema;
+}
+
+<pre>
+<code>
+using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
+
+namespace SQLDocumentor.CodeRenderer
+{
+    public abstract class Repository 
+    {
+        private readonly string _connectionString;
+
+        public Repository()
+        {
+            _connectionString = ConfigurationManager.AppSettings["default"];
+        }
+
+        public SqlConnection GetConnection()
+        {
+            return new SqlConnection(_connectionString);
+        }
+    }
+}
+</code>
+</pre>
+
+@foreach (var table in Model.Tables)
+{
+    var pkType = Helpers.GetPKType(table);
+    var pkName = Helpers.GetPKName(table);
+<pre>
+<code>
+using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
+
+namespace SQLDocumentor.CodeRenderer
+{
+    public class @table.Name.Pascalize()Repository : Repository
+    {
+        public @table.Name.Pascalize() Get(@pkType id)
+        {
+            var result = new @table.Name.Pascalize()<span>();</span>
+
+            using (var conn = GetConnection())
+            using (var command = new SqlCommand())
+            {
+                command.Connection = conn;
+                command.CommandType = CommandType.Text;
+                @{
+                    var delimiter = "";
+                @:command.CommandText = &#64;"SELECT 
+                foreach (var column in table.Parameters)
+	            {
+		                @delimiter@:&#91;@column.Name&#93;
+                        delimiter = ",";
+	            }<p>
+                FROM [@table.Name]
+                WHERE [@pkName] = &#64;Id";
+
+                command.Parameters.AddWithValue("&#64;Id", id);
+
+                conn.Open();
+
+                var dr = command.ExecuteReader();
+
+                while (dr.Read())
+                {
+                @{
+                delimiter = "";
+                foreach (var column in table.Parameters)
+                {
+		            @:result.@column.Name.Pascalize() = dr.GetValue&lt;@column.Datatype.AsDotNetType()&gt;("@column.Name");
+                    delimiter = ",";
+                }
+                }</p>}
+                }
+
+            return result;
+        }
+
+        public int Insert(xxx item)
+        {
+            // return the id
+        }
+
+        public void Delete(xxx item)
+        {
+        }
+
+        public void Update(xxx item)
+        {
+        }
+
+
+    }
+}
+</code>
+</pre>
+}
+
+
+
+

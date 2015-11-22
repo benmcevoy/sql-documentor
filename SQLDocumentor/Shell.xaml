@@ -1,0 +1,51 @@
+﻿<Window x:Class="SQLDocumentor.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:control="clr-namespace:SQLDocumentor.Controls"
+        Title="SQL Documentation Generator" Height="480" Width="640">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0">
+            <StackPanel Orientation="Vertical" >
+                <TextBlock Text="{Binding ServerName}" FontSize="32" Padding="10"  Foreground="#FF82C55B" Background="#FFF6F6F4" />
+                <TextBlock Text="{Binding ServerDescription}" FontSize="16" Padding="10"  />
+            </StackPanel>
+        </Border>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10">
+
+            <control:Field Label="Server:" Value="{Binding Server}" />
+            <control:Field Label="Username:" Value="{Binding UserName}" />
+            <control:Field Label="Password:" Value="{Binding Password}" />
+            <control:Field Label="Integrated:" Value="{Binding UseIntegratedSecurity}" />
+
+        </StackPanel>
+
+        <StackPanel  Orientation="Horizontal" Grid.Row="2" Margin="10">
+
+
+            <Label Content="Database:"/>
+            <ComboBox ItemsSource="{Binding Databases}" SelectedItem="{Binding Database}" />
+            <Button Command="{Binding GetDatabasesCommand}" Content="Get DB's"/>
+
+            <Button Command="{Binding GenerateCommand}" Content="GO"/>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="3" Margin="10">
+            <TextBlock Text="{Binding RendererName}" />
+            <TextBlock Text="{Binding RendererDescription}" />
+            <TextBlock Text="{Binding Status}"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
+
+    
