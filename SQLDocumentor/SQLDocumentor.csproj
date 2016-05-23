@@ -71,6 +71,7 @@
       <DependentUpon>Field.xaml</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\RelayCommand.cs" />
+    <Compile Include="Services\IGeneratorService.cs" />
     <Compile Include="ViewModels\GeneratorViewModel.cs" />
     <Page Include="Controls\Field.xaml">
       <SubType>Designer</SubType>
@@ -117,6 +118,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SQLDocumentor.AssemblyEntityRelationshipServer\SQLDocumentor.AssemblyEntityRelationshipServer.csproj">
+      <Project>{ab23f557-76e2-41ef-94c8-ff9a75153abc}</Project>
+      <Name>SQLDocumentor.AssemblyEntityRelationshipServer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SQLDocumentor.CodeRenderer\SQLDocumentor.CodeRenderer.csproj">
       <Project>{00BF6CB8-504B-4FBD-BEE0-DC7F85FB7517}</Project>
       <Name>SQLDocumentor.CodeRenderer</Name>

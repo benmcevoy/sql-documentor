@@ -13,11 +13,11 @@
         <ContentControl Content="{Binding Path=Value, ElementName=self}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type system:String}">
-                    <TextBox Text="{Binding Path=Value, ElementName=self}"/>
+                    <TextBox Text="{Binding Path=Value, ElementName=self, Mode=TwoWay}"/>
                 </DataTemplate>
 
                 <DataTemplate DataType="{x:Type system:Boolean}">
-                    <CheckBox IsChecked="{Binding Path=Value, ElementName=self}"/>
+                    <CheckBox IsChecked="{Binding Path=Value, ElementName=self, Mode=TwoWay}"/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

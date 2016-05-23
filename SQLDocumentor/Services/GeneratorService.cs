@@ -1,25 +1,21 @@
-﻿using System;
-using SQLDocumentor.Interfaces;
+﻿using SQLDocumentor.Interfaces;
 
 namespace SQLDocumentor.Services
 {
-    public class GeneratorService
+    public class GeneratorService : IGeneratorService
     {
-        IRenderer _renderer;
-        IServer _server;
-
-        public IServer Server { get { return _server; } }
-        public IRenderer Renderer { get { return _renderer; } }
-
         public GeneratorService(IServer server, IRenderer renderer)
         {
-            _server = server;
-            _renderer = renderer;
+            Server = server;
+            Renderer = renderer;
         }
 
         public void Generate()
         {
-            _renderer.Render(_server.GetDatabaseSchema());
+            Renderer.Render(Server.GetSchema());
         }
+
+        public IServer Server { get; }
+        public IRenderer Renderer { get; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLDocumentor", "SQLDocumentor\SQLDocumentor.csproj", "{DA5775C7-38A0-43FC-A8B1-BE8F40329E3E}"
 EndProject
@@ -46,6 +46,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphSharp.Optimization", "Source\GraphSharp.Optimization\GraphSharp.Optimization.csproj", "{DB22A094-9169-4A12-8238-1D2472DDE049}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLDocumentor.CommerceServerCatalogXmlServer", "SQLDocumentor.CommerceServerCatalogXmlServer\SQLDocumentor.CommerceServerCatalogXmlServer.csproj", "{EAA3885D-FDEF-4591-8E95-0F4DFA3EC3D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLDocumentor.AssemblyEntityRelationshipServer", "SQLDocumentor.AssemblyEntityRelationshipServer\SQLDocumentor.AssemblyEntityRelationshipServer.csproj", "{AB23F557-76E2-41EF-94C8-FF9A75153ABC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -260,6 +262,24 @@ Global
 		{EAA3885D-FDEF-4591-8E95-0F4DFA3EC3D3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{EAA3885D-FDEF-4591-8E95-0F4DFA3EC3D3}.Release|x86.ActiveCfg = Release|Any CPU
 		{EAA3885D-FDEF-4591-8E95-0F4DFA3EC3D3}.Release|x86.Build.0 = Release|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.Debug|x86.Build.0 = Debug|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.DebugWithoutPlugins|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.DebugWithoutPlugins|Any CPU.Build.0 = Debug|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.DebugWithoutPlugins|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.DebugWithoutPlugins|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.DebugWithoutPlugins|x86.ActiveCfg = Debug|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.DebugWithoutPlugins|x86.Build.0 = Debug|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.Release|x86.ActiveCfg = Release|Any CPU
+		{AB23F557-76E2-41EF-94C8-FF9A75153ABC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

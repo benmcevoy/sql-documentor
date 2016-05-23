@@ -35,7 +35,7 @@ namespace SQLDocumentor.SqlServer
 
         private Schema _schema;
 
-        public Schema GetDatabaseSchema()
+        public Schema GetSchema()
         {
             _schema = new Schema();
 

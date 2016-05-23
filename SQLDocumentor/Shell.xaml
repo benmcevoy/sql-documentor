@@ -21,10 +21,10 @@
 
         <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10">
 
-            <control:Field Label="Server:" Value="{Binding Server}" />
-            <control:Field Label="Username:" Value="{Binding UserName}" />
-            <control:Field Label="Password:" Value="{Binding Password}" />
-            <control:Field Label="Integrated:" Value="{Binding UseIntegratedSecurity}" />
+            <control:Field Label="Server:" Value="{Binding Server, Mode=TwoWay}" />
+            <control:Field Label="Username:" Value="{Binding UserName, Mode=TwoWay}" />
+            <control:Field Label="Password:" Value="{Binding Password, Mode=TwoWay}" />
+            <control:Field Label="Integrated:" Value="{Binding UseIntegratedSecurity, Mode=TwoWay}" />
 
         </StackPanel>
 

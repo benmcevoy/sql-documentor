@@ -4,6 +4,7 @@ using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
 using SQLDocumentor.Interfaces;
+using SQLDocumentor.Services;
 
 namespace SQLDocumentor
 {
@@ -12,7 +13,7 @@ namespace SQLDocumentor
     /// </summary>
     public partial class App : Application
     {
-         private static IWindsorContainer _container;
+        private static IWindsorContainer _container;
 
         public App()
             : base()
@@ -36,13 +37,18 @@ namespace SQLDocumentor
 
             _container.Register(Component.For<IWindsorContainer>().Instance(_container));
 
-            _container.Register(Component.For<IServer>().ImplementedBy<CommerceServerCatalogXmlServer.Server>());
+            _container.Register(Component
+                .For<IServer>()
+                .ImplementedBy<AssemblyEntityRelationshipServer.Server>());
+                
             //_container.Register(Component.For<IServer>().ImplementedBy<SqlServer.Server>());
 
             _container.Register(Component.For<IRenderer>().ImplementedBy<DiagramRenderer.Renderer>());
             //_container.Register(Component.For<IRenderer>().ImplementedBy<HtmlRenderer.Renderer>());
             //_container.Register(Component.For<IRenderer>().ImplementedBy<RazorRenderer.Renderer>());
             //_container.Register(Component.For<IRenderer>().ImplementedBy<CodeRenderer.Renderer>());
+
+            _container.Register(Component.For<IGeneratorService>().ImplementedBy<GeneratorService>());
 
             _container.Register(AllTypes.FromThisAssembly()
                    .Where(type => type.Name.EndsWith("Service"))

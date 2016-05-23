@@ -9,7 +9,7 @@ namespace SQLDocumentor.CommerceServerCatalogXmlServer
 {
     public class Server : IServer
     {
-        public Schema GetDatabaseSchema()
+        public Schema GetSchema()
         {
             return new Schema { Tables = GetTables() };
         }
@@ -40,7 +40,7 @@ namespace SQLDocumentor.CommerceServerCatalogXmlServer
             });
         }
 
-        private ProductProperty ToProductProperty(XElement element)
+        private static ProductProperty ToProductProperty(XElement element)
         {
             return new ProductProperty
             {

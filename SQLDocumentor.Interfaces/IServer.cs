@@ -15,7 +15,7 @@ namespace SQLDocumentor.Interfaces
         string Password { get; set; } // TODO: probably should not have these properties
         bool UseIntegratedSecurity { get; set; }
 
-        Schema GetDatabaseSchema();
+        Schema GetSchema();
         IEnumerable<string> GetDatabases();
         string GetServerConnectionString();
         string GetDatabaseConnectionString();

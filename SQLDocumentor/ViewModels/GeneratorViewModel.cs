@@ -9,11 +9,11 @@ namespace SQLDocumentor.ViewModels
 {
     public class GeneratorViewModel : INotifyPropertyChanged
     {
-        private GeneratorService _generator;
+        private readonly IGeneratorService _generator;
 
         public event EventHandler GenerateComplete;
 
-        public GeneratorViewModel(GeneratorService generator)
+        public GeneratorViewModel(IGeneratorService generator)
         {
             _generator = generator;
            
